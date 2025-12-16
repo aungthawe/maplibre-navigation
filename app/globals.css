@@ -18,3 +18,12 @@ body {
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
   white-space: nowrap;
 }
+
+.maplibregl-map {
+  z-index: 0;
+}
+
+.map-overlay {
+  position: absolute;
+  z-index: 10;
+}

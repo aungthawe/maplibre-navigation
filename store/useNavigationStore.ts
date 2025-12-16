@@ -1,18 +1,19 @@
 import { create } from "zustand";
-
-type Point = {
-  lat: number;
-  lng: number;
-};
+import { Coordinate, RouteInfo } from "@/type/location";
 
 type NavigationState = {
-  start?: Point;
-  destination?: Point;
-  setStart: (p: Point) => void;
-  setDestination?: (p: Point) => void;
+  start?: Coordinate;
+  destination?: Coordinate;
+  route?: RouteInfo;
+  setStart: (p: Coordinate) => void;
+  setDestination: (p: Coordinate) => void;
+  setRoute: (r: RouteInfo) => void;
+  clearRoute: () => void;
 };
 
 export const useNavigationStore = create<NavigationState>((set) => ({
   setStart: (start) => set({ start }),
   setDestination: (destination) => set({ destination }),
+  setRoute: (route) => set({ route }),
+  clearRoute: () => set({ route: undefined }),
 }));
